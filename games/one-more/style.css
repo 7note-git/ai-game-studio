@@ -1,0 +1,54 @@
+:root { color-scheme: dark; font-family: "Yu Gothic UI", "Hiragino Kaku Gothic ProN", system-ui, sans-serif; background: #151323; color: #f5f2ff; --lime: #d4fa73; --purple: #b69bd6; --muted: #b3acc6; }
+* { box-sizing: border-box; }
+body { margin: 0; background: radial-gradient(ellipse at 50% 35%, #30233f 0, #151323 65%); min-height: 100vh; }
+button, a { -webkit-tap-highlight-color: transparent; }
+button { font: inherit; cursor: pointer; border: 0; touch-action: manipulation; }
+button:disabled { cursor: default; opacity: .42; }
+button:focus-visible, a:focus-visible, summary:focus-visible { outline: 3px solid #fff; outline-offset: 5px; }
+.game { max-width: 720px; margin: auto; padding: 28px 28px 20px; }
+.topbar { display: flex; justify-content: space-between; align-items: center; gap: 16px; font-size: 11px; letter-spacing: .13em; }
+.topbar a { color: var(--muted); text-decoration: none; }
+.tag { color: var(--purple); border: 1px solid #6a527b; border-radius: 30px; padding: 5px 12px; }
+.heading { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin: 26px 0 20px; }
+.eyebrow { color: var(--purple); font-size: 12px; letter-spacing: .08em; margin: 0 0 8px; }
+h1 { font-size: clamp(29px, 7vw, 46px); letter-spacing: -.04em; margin: 0; font-weight: 800; line-height: 1.25; }
+h1 > span { color: var(--lime); }.dot { padding-left: 3px; }
+.quiet { border: 1px solid #6a5a7e; background: transparent; color: #dcd4ea; border-radius: 8px; min-height: 44px; padding: 10px 13px; font-size: 12px; flex-shrink: 0; }
+.stats { display: grid; grid-template-columns: 1fr 1fr 1fr; border: 1px solid #4b3f60; border-radius: 16px; background: #201c30; padding: 17px 20px; }
+.stats > div + div { border-left: 1px solid #44374f; padding-left: 24px; }
+.label { display: block; font-size: 11px; color: var(--muted); margin-bottom: 4px; }
+.stats strong { font-size: 28px; line-height: 1.2; font-variant-numeric: tabular-nums; }.stats small { font-size: 12px; font-weight: 400; }
+.carry-stat strong { color: var(--lime); }.time-stat { text-align: right; }
+.playfield { position: relative; margin-top: 6px; }
+#arena { position: relative; display: block; width: 100%; max-width: 410px; margin: auto; padding: 0; background: transparent; color: inherit; border-radius: 50%; aspect-ratio: 1; user-select: none; }
+#arena:disabled { opacity: 1; }
+svg { display: block; width: 100%; height: 100%; overflow: visible; }
+.orbit-outer { stroke: #5e476d; stroke-width: 1; stroke-dasharray: 2 11; fill: none; }
+.orbit { fill: none; stroke: #51415e; stroke-width: 3; }
+.zone-halo { fill: none; stroke: var(--lime); stroke-width: 23; opacity: .14; stroke-linecap: round; }
+.zone { fill: none; stroke: var(--lime); stroke-width: 5; stroke-linecap: round; }
+#star { fill: var(--lime); }.runner { fill: #fff; }.runner-halo { fill: #fff; opacity: .12; }
+.center { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; flex-direction: column; pointer-events: none; }
+.center-label { color: var(--muted); font-size: 11px; letter-spacing: .1em; }
+#chain { font-size: 45px; font-variant-numeric: tabular-nums; margin: 5px 0; }#chain span { display: block; text-align: center; color: var(--purple); letter-spacing: .2em; font-size: 10px; }
+#next { font-size: 12px; color: var(--lime); margin-top: 6px; }
+.cover { position: absolute; inset: 0 -4px; display: grid; place-items: center; border-radius: 20px; background: #151323d9; backdrop-filter: blur(8px); }
+.cover-card { text-align: center; padding: 22px 14px; width: min(100%, 440px); }
+.cover-card h2 { font-size: clamp(25px, 6vw, 34px); margin: 10px 0; }.cover-card p { line-height: 1.9; }
+#cover-copy { font-size: 13px; color: #d6cde6; margin: 12px 0 18px; }.cover-foot { font-size: 10px; color: var(--muted); margin-bottom: 0; }
+.result-detail { color: var(--lime); font-size: 13px; margin: 8px 0; }
+.primary { display: flex; align-items: center; justify-content: space-between; gap: 12px; background: var(--lime); color: #202617; border-radius: 12px; padding: 17px 22px; font-weight: 750; min-height: 55px; }
+.primary:hover:enabled { background: #e2ff9d; }.cover-card .primary { width: 100%; }
+.secondary { display: flex; align-items: center; justify-content: space-between; gap: 8px; border: 1px solid #9580af; background: #35283f; color: #f4ecff; padding: 16px 18px; border-radius: 12px; min-height: 55px; }
+.secondary:hover:enabled { background: #493553; }#bank-value { color: var(--lime); font-size: 13px; }
+.actions { display: grid; grid-template-columns: 1.1fr 1fr; gap: 12px; }
+kbd { font: inherit; font-size: 9px; letter-spacing: .08em; opacity: .6; }
+.message { text-align: center; min-height: 22px; margin: -4px 0 15px; font-size: 13px; color: var(--lime); }
+.message[data-tone="miss"] { color: #ffb2c4; }
+.yuu-note { margin: 22px 0; padding: 12px 16px; border-left: 2px solid #826495; display: flex; gap: 15px; align-items: center; }
+.pixel-face { font-family: monospace; color: var(--lime); background: #231a31; border: 1px solid #8a689c; padding: 8px; border-radius: 10px; white-space: nowrap; transform: rotate(-5deg); }.yuu-note p { color: #c3b7d2; font-size: 12px; margin: 0; line-height: 1.7; }
+details { color: var(--muted); font-size: 12px; border-top: 1px solid #40324e; padding: 14px 0; }summary { cursor: pointer; padding: 8px 0; min-height: 36px; }details p { line-height: 1.9; }
+footer { display: flex; justify-content: space-between; gap: 12px; color: #a49ab7; font-size: 10px; padding: 12px 0; }footer strong { color: #ddd1ef; font-size: 13px; padding-left: 6px; }
+[hidden] { display: none; }
+@media (max-width: 460px) { .game { padding: 20px 18px 12px; }.heading { margin: 24px 0 18px; }.stats { padding: 14px; }.stats > div + div { padding-left: 15px; }.stats strong { font-size: 26px; } .actions { gap: 8px; }.actions button { padding: 15px 13px; font-size: 14px; }kbd { display: none; }.message { font-size: 12px; }.cover-card { padding: 12px 14px; }#cover-copy { font-size: 12px; margin: 8px 0 12px; }.cover-card .eyebrow { font-size: 10px; }.cover-card h2 { margin: 6px 0; }.cover-foot { margin-top: 8px; } }
+@media (prefers-reduced-motion: reduce) { .pixel-face { transform: none; } }

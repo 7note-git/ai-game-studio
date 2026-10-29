@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#151323">
+  <title>あと1コだけ | ユウのゲーム</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="./style.css">
+  <script src="./app.mjs?v=0.1.1" type="module"></script>
+</head>
+<body>
+  <main class="game">
+    <header class="topbar"><a href="../../">YUU / GAME STUDIO</a><span class="tag">試作 01 · v0.1.1</span></header>
+    <div class="heading"><div><p class="eyebrow">欲張ったぶん、ドキドキする。</p><h1>あと<span>1</span>コだけ<span class="dot">.</span></h1></div><button id="pause" class="quiet" type="button" disabled>一時停止</button></div>
+    <div class="stats" aria-label="スコアと残り時間">
+      <div><span class="label">確保した点</span><strong id="score">0</strong></div>
+      <div class="carry-stat"><span class="label">いまの手持ち</span><strong id="carry">0</strong></div>
+      <div class="time-stat"><span class="label">のこり</span><strong><span id="time">45</span><small> 秒</small></strong></div>
+    </div>
+    <section class="playfield" aria-label="ゲーム盤">
+      <button id="arena" type="button" aria-label="ライム色のゾーンに光が来たらつかまえる" disabled>
+        <svg viewBox="0 0 360 360" aria-hidden="true">
+          <circle class="orbit-outer" cx="180" cy="180" r="146"/>
+          <circle class="orbit" cx="180" cy="180" r="120"/>
+          <path id="zone-halo" class="zone-halo"/><path id="zone" class="zone"/>
+          <g id="star"><path d="M0 -10 3 -3 10 0 3 3 0 10 -3 3 -10 0 -3 -3Z"/></g>
+          <circle id="runner-halo" class="runner-halo" r="14"/><circle id="runner" class="runner" r="7"/>
+        </svg>
+        <span class="center"><span class="center-label">連続キャッチ</span><strong id="chain">0<span> CHAIN</span></strong><span id="next">次は +10</span></span>
+      </button>
+      <div id="cover" class="cover">
+        <div class="cover-card"><p class="eyebrow" id="cover-kicker">YUU'S FIRST EXPERIMENT</p><h2 id="cover-title">もう1コ、いける？</h2><p id="cover-copy">光がゾーンに重なったら、つかまえる。<br>欲張るほど高得点。外すと手持ちはゼロ。</p><p class="result-detail" id="result-detail"></p><button id="start" class="primary" type="button">45秒、遊んでみる <span>↗</span></button><p class="cover-foot">時間切れの手持ちは自動で確保。</p></div>
+      </div>
+    </section>
+    <p id="message" class="message" role="status" aria-live="polite">まずは1コ。光のタイミングを見てね。</p>
+    <div class="actions"><button id="catch" class="primary" type="button" disabled>つかまえる <kbd>SPACE</kbd></button><button id="bank" class="secondary" type="button" disabled>確保する <span id="bank-value">+0</span><kbd>B</kbd></button></div>
+    <div class="yuu-note"><span class="pixel-face" aria-hidden="true">⌐ ▿ ⌐</span><p id="yuu-line">あと1コくらい、いけそうじゃない？</p></div>
+    <details><summary>遊び方と操作</summary><p>白い光がライム色のゾーンに重なったら「つかまえる」。輪でも操作できます。タッチ・マウスは押した瞬間、Spaceキーも押した瞬間に判定します。</p><p>連続でつかまえると点が増え、光は速く、ゾーンは狭くなります。外すと手持ちだけゼロ。「確保する」かBキーで点を守ると、速さと連続数が戻ります。</p><p>45秒で終了。最後の手持ちは自動で確保します。一時停止はボタンかPキー。タブを離れても自動停止します。</p><p>最高点はこのブラウザ内だけに保存します。</p></details>
+    <footer><span>自己ベスト <strong id="best">—</strong></span><span>つくったひと：ユウ</span></footer>
+    <noscript>このゲームにはJavaScriptが必要です。</noscript>
+  </main>
+</body>
+</html>
